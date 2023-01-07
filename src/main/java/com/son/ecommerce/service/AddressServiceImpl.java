@@ -10,7 +10,7 @@ import com.son.ecommerce.common.exception.AddressException;
 import com.son.ecommerce.dto.AddressDto;
 import com.son.ecommerce.mapper.AddressMapper;
 import com.son.ecommerce.model.Address;
-import com.son.ecommerce.model.AddressDefaultEnum;
+import com.son.ecommerce.model.DefaultSettingEnum;
 import com.son.ecommerce.model.SiteUser;
 import com.son.ecommerce.repository.AddressRepository;
 
@@ -39,13 +39,13 @@ public class AddressServiceImpl implements AddressService {
 	public void save(AddressDto dto) {
 		SiteUser userCurrent = authService.findCurrentUser();
 		
-		Iterable<Address> addresses = repository.findAll();
-		addresses.forEach(t -> t.setIsDefault(AddressDefaultEnum.N));
+		Iterable<Address> addresses = repository.findBySiteUser(userCurrent);
+		addresses.forEach(t -> t.setIsDefault(DefaultSettingEnum.N));
 		repository.saveAll(addresses);
 		
 		Address address = AddressMapper.INSTANCE.dtoToModel(dto);
 		address.setSiteUser(userCurrent);
-		address.setIsDefault(AddressDefaultEnum.Y);
+		address.setIsDefault(DefaultSettingEnum.Y);
 		
 		repository.save(address);
 	}

@@ -31,4 +31,54 @@ public class GlobalExceptionHandler {
 		
 		return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler
+	public Object UserPaymentMethodException(UserPaymentMethodException exc) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("timeStamp", LocalDateTime.now());
+		map.put("error", exc.getMessage());
+		map.put("status", HttpStatus.NOT_FOUND.value());
+		
+		return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler
+	public Object ProductCategoryException(ProductCategoryException exc) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("timeStamp", LocalDateTime.now());
+		map.put("error", exc.getMessage());
+		map.put("status", HttpStatus.NOT_FOUND.value());
+		
+		return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler
+	public Object ProductException(ProductException exc) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("timeStamp", LocalDateTime.now());
+		map.put("error", exc.getMessage());
+		map.put("status", HttpStatus.NOT_FOUND.value());
+		
+		return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler
+	public Object VariationException(VariationException exc) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("timeStamp", LocalDateTime.now());
+		map.put("error", exc.getMessage());
+		map.put("status", HttpStatus.NOT_FOUND.value());
+		
+		return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler
+	public Object VariationOptionException(VariationOptionException exc) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("timeStamp", LocalDateTime.now());
+		map.put("error", exc.getMessage());
+		map.put("status", HttpStatus.NOT_FOUND.value());
+		
+		return new ResponseEntity<>(map, HttpStatus.NOT_FOUND);
+	}
 }

@@ -1,6 +1,6 @@
 package com.son.ecommerce.dto;
 
-import com.son.ecommerce.model.AddressDefaultEnum;
+import com.son.ecommerce.model.DefaultSettingEnum;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,5 +13,5 @@ public class AddressDto {
 	private String district;
 	private String subDistrict;
 	private String addressDetails;
-	private AddressDefaultEnum isDefault;
+	private DefaultSettingEnum isDefault;
 }

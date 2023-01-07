@@ -41,7 +41,7 @@ public class Address {
 	private String addressDetails;
 	
 	@Enumerated(EnumType.STRING)
-	private AddressDefaultEnum isDefault;
+	private DefaultSettingEnum isDefault;
 	
 	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, 
 						CascadeType.PERSIST, CascadeType.REFRESH})

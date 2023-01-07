@@ -46,4 +46,9 @@ public class SiteUser {
 				fetch = FetchType.LAZY, 
 				mappedBy = "siteUser")
 	private Set<Address> addresses;
+	
+	@OneToMany(cascade = CascadeType.ALL,
+			 	fetch = FetchType.LAZY, 
+			 	mappedBy = "siteUser")
+	private Set<UserPaymentMethod> paymentMethods;
 }
